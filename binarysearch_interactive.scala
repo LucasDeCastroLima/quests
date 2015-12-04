@@ -7,18 +7,17 @@ class BinarySearch(list: Array[Int]) {
         var count = 0;
         while(mit){
             var elem: Int = list(aux)
-            println(aux+" "+elem);
             if(elem == x){
                 res = elem;
                 mit = false;
             }else if(x > elem){
-                var vl = Math.round(aux - (aux / 2))
+                var vl = (aux - (aux / 2))
                 if(vl > 1)
                     vl /= 2
 
                 aux += vl
             }else if(x < elem){
-                var vl = Math.round(aux - (aux / 2))
+                var vl = (aux - (aux / 2))
                 if(vl > 1)
                     vl /= 2
 
@@ -26,14 +25,14 @@ class BinarySearch(list: Array[Int]) {
             }
 
             if(count > list.length){
-                println("Resultado não encontrado")
+                return -1;
                 mit = false;
             }
 
             count += 1
         }
         if(!(count > list.length))
-            println("Valor: "+ res +" Key: "+ aux);
+            return aux
     }
 }
 
